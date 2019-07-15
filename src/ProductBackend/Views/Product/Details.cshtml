@@ -1,0 +1,224 @@
+﻿@model IEnumerable<ProductBackend.Models.ProductModel>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<script>
+    /*  jQuery測試寫法
+    $(function () {
+        $("#dialog-modal").dialog({
+            height: 140,
+            modal: true
+        });
+    });
+
+    $(document).ready(function () {
+        $("#btnDelete").click(function () {
+            console.log("TTT");
+        });
+    });
+
+    $(function () {
+        $("#btnDelete").on("click", function (s) {
+
+        })
+    })
+    */
+
+    function btnDelete(value) {
+        $.ajax({
+            type:'post',
+            url: "@Url.Action("Delete", "Product")",
+            data: {
+                'value': value
+            },
+            success: function (response) {
+                if (response.success) {
+                    window.location.replace("@Url.Action("Details", "Product")");
+                } else {
+                    alert(response.responseText);
+                }
+            },
+            error: function () {
+
+            },
+        });
+    }
+
+    (function () {
+
+        $('document').ready(function () {
+
+            /*
+            var pendingRequests = {};
+            jQuery.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+                var key = options.url;
+                console.log(key);
+                if (!pendingRequests[key]) {
+                    pendingRequests[key] = jqXHR;
+                } else {
+                    //jqXHR.abort();    //放弃后触发的提交
+                    pendingRequests[key].abort();   // 放弃先触发的提交
+                }
+
+                var complete = options.complete;
+                options.complete = function (jqXHR, textStatus) {
+                    pendingRequests[key] = null;
+                    if (jQuery.isFunction(complete)) {
+                        complete.apply(this, arguments);
+                    }
+                };
+            });
+            */
+
+            $("#addDataForm").submit(function (event) {
+                /* event.preventDefault();*/
+                var item = {};
+                item['ProdName'] = $('#product-name').val();
+                item['Price'] = $('#price-name').val();
+                item['Count'] = $('#count-name').val();
+
+                console.log(item);
+                $.ajax({
+                    type: 'post',
+                    url: "@Url.Action("Create", "Product")",
+                    data: JSON.stringify(item),
+                    contentType: "application/json; charset=utf-8",
+                    beforeSend: function (xhr, opts) {
+                        //show loading gif
+                        $("#LoadingImage").show();
+                    },
+                    success: function (response) {
+                        $('#myModal').modal('in');
+                        console.log('Close');
+                    },
+                    error: function () {
+
+                    },
+                    complete: function () {
+                        //remove loading gif
+                    }
+                });
+            });
+
+            $("#testForm").submit(function (event) {
+                console.log(event);
+
+	        });
+
+            function ajaxCall() {
+                $("#LoadingImage").show();
+                $.ajax({
+                    type: "GET",
+                    url: surl,
+                    dataType: "jsonp",
+                    cache: false,
+                    jsonp: "onJSONPLoad",
+                    jsonpCallback: "newarticlescallback",
+                    crossDomain: "true",
+                    success: function (response) {
+                        $("#LoadingImage").hide();
+                        alert("Success");
+                    },
+                    error: function (xhr, status) {
+                        $("#LoadingImage").hide();
+                        alert('Unknown error ' + status);
+                    }
+                });
+            }
+
+
+
+        });
+    })();
+</script>
+
+<h2></h2>
+
+<div class="text-left">
+    <!-- Button trigger modal -->
+    <button id="openAddModal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        建立資料
+    </button>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImagePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Count)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.ProdName)
+            </td>
+            <td>
+                <img style="max-width: 50px; max-height: 50px" src="@Html.DisplayFor(modelItem => item.ImagePath)" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Count)
+            </td>
+            <td>
+                <button class="btn btn-default" onclick="location.href='@Url.Action("Edit", "Product", new { id = item.ID })';return false;">編輯</button>
+                <button id="btnDelete" class="btn btn-danger" onclick="btnDelete(@item.ID);">刪除</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header ">
+                <h4 class="modal-title" id="myModalLabel">新增資料</h4>
+            </div>
+
+            <form id="addDataForm">
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="product-name" class="col-form-label">產品名稱：</label>
+                        <input type="text" class="form-control" id="product-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="price-name" class="col-form-label">價格：</label>
+                        <input type="text" class="form-control" id="price-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="count-name" class="col-form-label">數量：</label>
+                        <input type="text" class="form-control" id="count-name">
+                    </div>
+                </div>
+            </form>
+
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+                <button id="submit" type="submit" class="btn btn-primary" form="addDataForm">儲存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
