@@ -13,8 +13,8 @@
 3. jQuery Ajax Post 
 
 ### - CRUD 說明
-EF Context -> 物件去取得資料。<br>
-[HttpPost] -> Attribute，設置該Function，是限制哪種method。<br>
+`EF Context` -> 物件去取得資料。<br>
+`[HttpPost]` -> Attribute，設置該Function，是限制哪種method。<br>
 
  ```csharp
         [HttpPost]
@@ -37,8 +37,8 @@ EF Context -> 物件去取得資料。<br>
             return View("Index");
         }
  ```      
-ModelState -> 當 Model Binding 驗證過後會得到一個Model字典物件，在Functions裡來驗證邏輯。<br>
-需在 Model 類的屬性可以設[資料驗證]<br>
+`ModelState` -> 當 Model Binding 驗證過後會得到一個Model字典物件，在Functions裡來驗證邏輯。<br>
+首先在 Model 類的屬性可以設[資料驗證]，可在Countrol，透過ModelState去做控制<br>
  
  ```csharp
     public class ProductModel
