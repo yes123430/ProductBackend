@@ -15,7 +15,7 @@
 #### - CRUD 說明
 `EF Context` -> 透過該物件取得資料庫資料。<br>
 `[HttpPost]` -> Attribute，設置該Function，是限制哪種method。<br>
-`[ActionResult]` -> 每一個 Controller Action 完成必須回傳實作ActionResult。如：<br>
+`[ActionResult]` -> 每一個 Controller Action 完成必須回傳實作ActionResult。如：Content(),File(),HttpNotFound(),Json().....<br>
  ```csharp
         [HttpPost]
         public ActionResult Create(Models.ProductModel productModel)
