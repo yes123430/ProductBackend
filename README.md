@@ -8,11 +8,11 @@
 　資料庫：MSSQL<br>
  
 ## - 實作那些功能
-1. CRUD (Entity Framework)
-2. 單張照片上傳
-3. jQuery Ajax Post 
+* CRUD (Entity Framework)
+* 單張照片上傳
+* jQuery Ajax Post 
 
-### - CRUD 說明
+#### - CRUD 說明
 `EF Context` -> 物件去取得資料。<br>
 `[HttpPost]` -> Attribute，設置該Function，是限制哪種method。<br>
 
