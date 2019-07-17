@@ -266,7 +266,6 @@ C:\Users\TedWu\Desktop\MVC教學\ProductBackend\ProductBackend\obj\Debug\Product
 C:\Users\TedWu\Desktop\MVC教學\ProductBackend\ProductBackend\obj\Debug\ProductBackend.csproj.GenerateResource.cache
 C:\Users\TedWu\Desktop\MVC教學\ProductBackend\ProductBackend\obj\Debug\ProductBackend.Migrations.ProdDBupdate1.resources
 C:\Users\TedWu\Desktop\MVC教學\ProductBackend\ProductBackend\obj\Debug\ProductBackend.Migrations.ProdDBupdate2.resources
-C:\Users\TedWu\Desktop\MVC教學\ProductBackend\ProductBackend\obj\Debug\ProductBackend.csprojAssemblyReference.cache
 C:\Users\TedWu\Desktop\MVC教學\ProductBackend\ProductBackend\obj\Debug\ProductBackend.Migrations.ProdModelUpdate.resources
 C:\Users\Yes123430\Desktop\ProductBackend\ProductBackend\bin\EntityFramework.dll
 C:\Users\Yes123430\Desktop\ProductBackend\ProductBackend\bin\EntityFramework.SqlServer.dll
@@ -279,3 +278,4 @@ C:\Users\Yes123430\Desktop\ProductBackend\ProductBackend\obj\Debug\ProductBacken
 C:\Users\Yes123430\Desktop\ProductBackend\ProductBackend\obj\Debug\ProductBackend.Migrations.ProdModelUpdate.resources
 C:\Users\Yes123430\Desktop\ProductBackend\ProductBackend\obj\Debug\ProductBackend.csproj.GenerateResource.cache
 C:\Users\Yes123430\Desktop\ProductBackend\ProductBackend\obj\Debug\ProductBackend.csprojAssemblyReference.cache
+C:\Users\TedWu\Desktop\MVC教學\ProductBackend\ProductBackend\obj\Debug\ProductBackend.csprojAssemblyReference.cache

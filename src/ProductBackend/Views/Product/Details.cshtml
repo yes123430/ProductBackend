@@ -4,136 +4,6 @@
     ViewBag.Title = "Details";
 }
 
-<script>
-    /*  jQuery測試寫法
-    $(function () {
-        $("#dialog-modal").dialog({
-            height: 140,
-            modal: true
-        });
-    });
-
-    $(document).ready(function () {
-        $("#btnDelete").click(function () {
-            console.log("TTT");
-        });
-    });
-
-    $(function () {
-        $("#btnDelete").on("click", function (s) {
-
-        })
-    })
-    */
-
-    function btnDelete(value) {
-        $.ajax({
-            type:'post',
-            url: "@Url.Action("Delete", "Product")",
-            data: {
-                'value': value
-            },
-            success: function (response) {
-                if (response.success) {
-                    window.location.replace("@Url.Action("Details", "Product")");
-                } else {
-                    alert(response.responseText);
-                }
-            },
-            error: function () {
-
-            },
-        });
-    }
-
-    (function () {
-
-        $('document').ready(function () {
-
-            /*
-            var pendingRequests = {};
-            jQuery.ajaxPrefilter(function (options, originalOptions, jqXHR) {
-                var key = options.url;
-                console.log(key);
-                if (!pendingRequests[key]) {
-                    pendingRequests[key] = jqXHR;
-                } else {
-                    //jqXHR.abort();    //放弃后触发的提交
-                    pendingRequests[key].abort();   // 放弃先触发的提交
-                }
-
-                var complete = options.complete;
-                options.complete = function (jqXHR, textStatus) {
-                    pendingRequests[key] = null;
-                    if (jQuery.isFunction(complete)) {
-                        complete.apply(this, arguments);
-                    }
-                };
-            });
-            */
-
-            $("#addDataForm").submit(function (event) {
-                /* event.preventDefault();*/
-                var item = {};
-                item['ProdName'] = $('#product-name').val();
-                item['Price'] = $('#price-name').val();
-                item['Count'] = $('#count-name').val();
-
-                console.log(item);
-                $.ajax({
-                    type: 'post',
-                    url: "@Url.Action("Create", "Product")",
-                    data: JSON.stringify(item),
-                    contentType: "application/json; charset=utf-8",
-                    beforeSend: function (xhr, opts) {
-                        //show loading gif
-                        $("#LoadingImage").show();
-                    },
-                    success: function (response) {
-                        $('#myModal').modal('in');
-                        console.log('Close');
-                    },
-                    error: function () {
-
-                    },
-                    complete: function () {
-                        //remove loading gif
-                    }
-                });
-            });
-
-            $("#testForm").submit(function (event) {
-                console.log(event);
-
-	        });
-
-            function ajaxCall() {
-                $("#LoadingImage").show();
-                $.ajax({
-                    type: "GET",
-                    url: surl,
-                    dataType: "jsonp",
-                    cache: false,
-                    jsonp: "onJSONPLoad",
-                    jsonpCallback: "newarticlescallback",
-                    crossDomain: "true",
-                    success: function (response) {
-                        $("#LoadingImage").hide();
-                        alert("Success");
-                    },
-                    error: function (xhr, status) {
-                        $("#LoadingImage").hide();
-                        alert('Unknown error ' + status);
-                    }
-                });
-            }
-
-
-
-        });
-    })();
-</script>
-
 <h2></h2>
 
 <div class="text-left">
@@ -164,24 +34,24 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(m => item.ProdName)
-            </td>
-            <td>
-                <img style="max-width: 50px; max-height: 50px" src="@Html.DisplayFor(modelItem => item.ImagePath)" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Count)
-            </td>
-            <td>
-                <button class="btn btn-default" onclick="location.href='@Url.Action("Edit", "Product", new { id = item.ID })';return false;">編輯</button>
-                <button id="btnDelete" class="btn btn-danger" onclick="btnDelete(@item.ID);">刪除</button>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.ProdName)
+                </td>
+                <td>
+                    <img style="max-width: 50px; max-height: 50px" src="@Html.DisplayFor(modelItem => item.ImagePath)" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Count)
+                </td>
+                <td>
+                    <button class="btn btn-default" onclick="location.href='@Url.Action("Edit", "Product", new { id = item.ID })';return false;">編輯</button>
+                    <input type="button" class="btn btn-danger" value="刪除" onclick="productBtnDeleteEvent(@item.ID)" />
+                </td>
+            </tr>
         }
     </tbody>
 </table>

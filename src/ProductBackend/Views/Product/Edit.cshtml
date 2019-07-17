@@ -4,30 +4,6 @@
     ViewBag.Title = "編輯";
 }
 
-
-<script>
-    {
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-
-                /*藉由 FileReader 物件，Web 應用程式能以非同步（asynchronously）方式讀取儲存在用戶端的檔案（或原始資料暫存）內容，可以使用 File 或 Blob 物件指定要讀取的資料。*/ 
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#blah').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $(document).ready(function () {
-            $("#imgInp").change(function () {
-                readURL(this);
-            });
-        });
-    }
-</script>
-
 @using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()

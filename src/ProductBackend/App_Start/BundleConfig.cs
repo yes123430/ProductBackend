@@ -25,6 +25,10 @@ namespace ProductBackend
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+
+            bundles.Add(new StyleBundle("~/bundles/productbackend").Include(
+                        "~/Scripts/productbackend.min.js"));
         }
     }
 }

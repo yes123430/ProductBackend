@@ -10,7 +10,6 @@ namespace ProductBackend.Controllers
     public class ProductController : Controller
     {
         // GET: Product
-        
         public ActionResult Index()
         {
             var bResult = Convert.ToBoolean(Session["auth"]);
@@ -147,9 +146,11 @@ namespace ProductBackend.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult Delete(string value)
         {
+            Console.WriteLine("進入Delete");
+
             if (value == null)
             {
-                Response.StatusCode = (int)System.Net.HttpStatusCode.BadRequest;
+                //Response.StatusCode = (int)System.Net.HttpStatusCode.BadRequest;
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
             }
 
