@@ -9,7 +9,7 @@
  
 ## - 實作那些功能
 * CRUD (Entity Framework)
-* jQuery Ajax Post 
+* jQuery Ajax Post - (~/Script/productbackend.min.js)
 * 單張照片上傳
 
 
@@ -65,17 +65,17 @@
  ```
 #### - CRUD jQuery Ajax Post
 ```javascript
-    function btnDelete(value) {
+    function productBtnDeleteEvent(value) {
         $.ajax({
             type:'post',
-            url: "@Url.Action("Delete", "Product")",
+            url: '/Product/Delete',
             dataType: JSON,
             data: {
                 'value': value
             },
             success: function (response) {
                 if (response.success) {
-                    window.location.replace("@Url.Action("Details", "Product")");
+                    window.location.replace('/Product/Details');
                 } else {
                     alert(response.responseText);
                 }
