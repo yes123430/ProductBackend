@@ -1,4 +1,4 @@
-# ProductBackend - 練習狀況
+# ProductBackend - Asp .Net MVC 5 實作練習
 
 <p align="center">
   <img src="https://github.com/yes123430/ProductBackend/blob/master/Description/PB01.JPG">
