@@ -4,15 +4,15 @@
   <img src="https://github.com/yes123430/ProductBackend/blob/master/Description/PB01.JPG">
 </p>
 
-開發工具：Visual Studio 2019
-　資料庫：MSSQL
+<P>開發工具：Visual Studio 2019</P>
+<P>　資料庫：MSSQL</P>
  
 ## - 實作那些功能 -
 1. CRUD (Entity Framework)
 2. 單張照片上傳
 3. jQuery Ajax Post 
 
-# CRUD - 學習紀錄
+### CRUD - 學習紀錄
 透過 EF Context 去取得
 
  ```csharp
