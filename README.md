@@ -4,8 +4,8 @@
   <img src="https://github.com/yes123430/ProductBackend/blob/master/Description/PB01.JPG">
 </p>
 
-<P>開發工具：Visual Studio 2019</P>
-<P>　資料庫：MSSQL</P>
+開發工具：Visual Studio 2019<br>
+　資料庫：MSSQL<br>
  
 ## - 實作那些功能
 1. CRUD (Entity Framework)
@@ -13,8 +13,9 @@
 3. jQuery Ajax Post 
 
 ### - CRUD 說明
-<P>EF Context -> 物件去取得資料。</P>
-<P>[HttpPost] -> Attribute，設置該Function，是限制哪種method。</P>
+EF Context -> 物件去取得資料。<br>
+[HttpPost] -> Attribute，設置該Function，是限制哪種method。<br>
+
  ```csharp
         [HttpPost]
         public ActionResult Create(Models.ProductModel productModel)
@@ -36,8 +37,8 @@
             return View("Index");
         }
  ```      
-ModelState -> 當 Model Binding 驗證過後會得到一個Model字典物件，在Functions裡來驗證邏輯。
-需在 Model 類的屬性可以設[資料驗證]
+ModelState -> 當 Model Binding 驗證過後會得到一個Model字典物件，在Functions裡來驗證邏輯。<br>
+需在 Model 類的屬性可以設[資料驗證]<br>
  
  ```csharp
     public class ProductModel
