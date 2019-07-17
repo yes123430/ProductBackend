@@ -13,7 +13,7 @@
 * jQuery Ajax Post 
 
 #### - CRUD 說明
-`EF Context` -> 物件去取得資料。<br>
+`EF Context` -> 透過該物件取得資料庫資料。<br>
 `[HttpPost]` -> Attribute，設置該Function，是限制哪種method。<br>
 
  ```csharp
