@@ -5,40 +5,50 @@
 </p>
 
 ## - 實作那些功能 -
-1. CRUD
+1. CRUD (Entity Framework)
 2. 單張照片上傳
 3. jQuery Ajax Post 
 
-        [HttpPost, ActionName("Delete")]
-        public ActionResult Delete(string value)
+# CRUD - 學習紀錄
+        [HttpPost]
+        public ActionResult Create(Models.ProductModel productModel)
         {
-            if (value == null)
+            if (ModelState.IsValid)
             {
-                Response.StatusCode = (int)System.Net.HttpStatusCode.BadRequest;
-                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
-            }
-            using (var dbContext = new EF.DBModelContext())
-            {
-                try
+                using (var dbContext = new EF.DBModelContext())
                 {
-                    var wValue = Convert.ToInt32(value);
-                    var model = dbContext.Products.Where(w => w.ID == wValue).Single();
-                    dbContext.Products.Remove(model);
+                    var createModel = new Models.ProductModel();
+                    createModel.ProdName = productModel.ProdName;
+                    createModel.Price = productModel.Price;
+                    createModel.Count = productModel.Count;
+                    createModel.ImagePath = productModel.ImagePath;
+                    dbContext.Products.Add(createModel);
                     dbContext.SaveChanges();
-                }
-                catch (Exception ex)
-                {
-                    return Json(new
-                    {
-                        success = false,
-                        responseText = ex.Message,
-                    }, JsonRequestBehavior.AllowGet);
+                    return RedirectToAction("Deatils");
                 }
             }
-            return Json(new
-            {
-                success = true,
-                responseText = "Your message successfuly sent!"
-            }, JsonRequestBehavior.AllowGet);
+            return View("Index");
         }
-    
+        
+ ModelState -> 當 Model Binding 驗證過後會得到一個Model字典物件，在Functions裡來驗證邏輯。
+ 在Model class 的屬性可以設[資料驗證]
+    public class ProductModel
+    {    
+        [Key]
+        [Required]
+        public int ID { get; set; }
+
+        [Display(Name ="產品名稱")]
+        [Required]
+        public string ProdName { get; set; }
+
+        [Display(Name = "圖片")]
+        public string ImagePath { get; set; }
+
+        [Display(Name = "價格")]
+        [Required]
+        public double Price { get; set; }
+
+        [Display(Name = "庫存量")]
+        public double Count { get; set; }
+    }
