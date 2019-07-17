@@ -10,6 +10,7 @@
 3. jQuery Ajax Post 
 
 # CRUD - 學習紀錄
+ ```csharp
         [HttpPost]
         public ActionResult Create(Models.ProductModel productModel)
         {
@@ -29,9 +30,12 @@
             }
             return View("Index");
         }
-        
+ ```      
+ 
  ModelState -> 當 Model Binding 驗證過後會得到一個Model字典物件，在Functions裡來驗證邏輯。
  在Model class 的屬性可以設[資料驗證]
+ 
+ ```csharp
     public class ProductModel
     {    
         [Key]
@@ -52,3 +56,4 @@
         [Display(Name = "庫存量")]
         public double Count { get; set; }
     }
+ ```
