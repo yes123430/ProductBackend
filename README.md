@@ -7,14 +7,14 @@
 <P>開發工具：Visual Studio 2019</P>
 <P>　資料庫：MSSQL</P>
  
-## - 實作那些功能 -
+## - 實作那些功能
 1. CRUD (Entity Framework)
 2. 單張照片上傳
 3. jQuery Ajax Post 
 
-### CRUD - 學習紀錄
-透過 EF Context 去取得
-
+### - CRUD 說明
+<P>EF Context -> 物件去取得資料。</P>
+<P>[HttpPost] -> Attribute，設置該Function，是限制哪種method。</P>
  ```csharp
         [HttpPost]
         public ActionResult Create(Models.ProductModel productModel)
@@ -36,9 +36,9 @@
             return View("Index");
         }
  ```      
+ <P>ModelState -> 當 Model Binding 驗證過後會得到一個Model字典物件，在Functions裡來驗證邏輯。</P>
+ <P>需在 Model 類的屬性可以設[資料驗證]</P>
  
- ModelState -> 當 Model Binding 驗證過後會得到一個Model字典物件，在Functions裡來驗證邏輯。
- 在Model class 的屬性可以設[資料驗證]
  
  ```csharp
     public class ProductModel
