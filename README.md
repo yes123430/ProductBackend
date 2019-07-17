@@ -9,8 +9,9 @@
  
 ## - 實作那些功能
 * CRUD (Entity Framework)
-* 單張照片上傳
 * jQuery Ajax Post 
+* 單張照片上傳
+
 
 #### - CRUD 說明
 `EF Context` -> 透過該物件取得資料庫資料。<br>
@@ -62,3 +63,25 @@
         public double Count { get; set; }
     }
  ```
+#### - CRUD jQuery Ajax Post
+```javascript
+    function btnDelete(value) {
+        $.ajax({
+            type:'post',
+            url: "@Url.Action("Delete", "Product")",
+            data: {
+                'value': value
+            },
+            success: function (response) {
+                if (response.success) {
+                    window.location.replace("@Url.Action("Details", "Product")");
+                } else {
+                    alert(response.responseText);
+                }
+            },
+            error: function () {
+
+            },
+        });
+    }
+```
