@@ -69,6 +69,7 @@
         $.ajax({
             type:'post',
             url: "@Url.Action("Delete", "Product")",
+            dataType: JSON,
             data: {
                 'value': value
             },
