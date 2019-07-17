@@ -36,9 +36,8 @@
             return View("Index");
         }
  ```      
- <P>ModelState -> 當 Model Binding 驗證過後會得到一個Model字典物件，在Functions裡來驗證邏輯。</P>
- <P>需在 Model 類的屬性可以設[資料驗證]</P>
- 
+ModelState -> 當 Model Binding 驗證過後會得到一個Model字典物件，在Functions裡來驗證邏輯。
+需在 Model 類的屬性可以設[資料驗證]
  
  ```csharp
     public class ProductModel
