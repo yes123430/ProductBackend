@@ -11,6 +11,7 @@
     
     @Scripts.Render("~/bundles/productbackend")
     
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -34,10 +35,11 @@
                     }
                     else
                     {
-                        <ul class="nav navbar-nav">
-                            <li>@Html.ActionLink("產品列表", "Details", "Product", null, new { @class = "btn btn-link" })</li>
-                            <li>@Html.ActionLink("登入", "Index", "Product", null, new { @class = "btn btn-link" })</li>
-                        </ul>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("商店", "Index", "Shop", null, new { @class = "btn btn-link" })</li>
+                <li>@Html.ActionLink("產品列表", "Details", "Product", null, new { @class = "btn btn-link" })</li>
+                <li>@Html.ActionLink("登入", "Index", "Product", null, new { @class = "btn btn-link" })</li>
+            </ul>
                     }
                 }
             </div>
