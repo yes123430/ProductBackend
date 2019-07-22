@@ -7,14 +7,17 @@ using System.Web;
 namespace ProductBackend.Models
 {
     public class ProductModel
-    {    
+    {
         [Key]
         [Required]
         public int ID { get; set; }
 
-        [Display(Name ="產品名稱")]
+        [Display(Name = "產品名稱")]
         [Required]
         public string ProdName { get; set; }
+
+        [Display(Name = "產品描述")]
+        public string ProdDescription {get; set;}
 
         [Display(Name = "圖片")]
         public string ImagePath { get; set; }
@@ -25,5 +28,10 @@ namespace ProductBackend.Models
 
         [Display(Name = "庫存量")]
         public double Count { get; set; }
+
+        [Display(Name = "建立時間")]
+        [Required]
+        public DateTime BuildDateTime { get; set; }
+
     }
 }

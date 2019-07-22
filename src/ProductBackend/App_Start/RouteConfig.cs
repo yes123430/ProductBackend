@@ -14,16 +14,15 @@ namespace ProductBackend
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Product",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Product", action = "Index", id = UrlParameter.Optional }
-               );
-
-            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Shop", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name: "Default2",
+                url: "{controller}/{action}/All/{id}",
+                defaults: new { controller = "Shop", action = "Categories", id = UrlParameter.Optional }
+                );
         }
     }
 }

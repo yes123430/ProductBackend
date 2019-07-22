@@ -5,14 +5,14 @@ namespace ProductBackend.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ProductBackend.EF.DBModelContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ProductBackend.EF.DBContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(ProductBackend.EF.DBModelContext context)
+        protected override void Seed(ProductBackend.EF.DBContext context)
         {
             //  This method will be called after migrating to the latest version.
 

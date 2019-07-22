@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ProductBackend.Models.ProductModel>
+
+@{
+    ViewBag.Title = "Amount";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProdName)
+        </th>
+        <th>單價</th>
+        <th>數量</th>
+        <th>刪除</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProdName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Count)
+        </td>
+        <td>
+            <button type="button" class="btn-danger" onclick="btnShopCartDeleteEvent(this,@item.ID)">刪除</button>
+        </td>
+    </tr>
+}
+    <tr>
+        <td class="font-weight-bold">
+            總價：
+        </td>
+        <td id="ProdPriceAmount">
+            @ViewBag.Amount
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+    </tr>
+</table>
+<hr />
+<div class="container w-75 mb-3 ">
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">購買者郵件：</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="輸入郵件">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">備註：</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">送出</button>
+    </form>
+</div>
