@@ -121,8 +121,72 @@ namespace ProductBackend.Controllers
             }, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult SaveOrder(Models.OrderModel orderModel)
+        {
+            List<OrderDetailsModel> orderDetailsModels = new List<OrderDetailsModel>();
+            double prodAmount = 0;
+            HttpCookie cookie = Request.Cookies["shopcart"];
+            if (cookie != null)
+            {
+                string str = string.Empty;
+                if (string.IsNullOrEmpty(cookie.Value))
+                {
+                    return View();
+                } 
 
- 
+                var array = cookie.Value.Split(',');
+                var length = array.Length;
+                for (int i = 0; i < length; i = i + 2)
+                {
+                    var id = Convert.ToInt32(array[i].Replace("ID=", ""));
+                    var count = Convert.ToInt32(array[i + 1].Replace("COUNT=", ""));
+                    var model = db.Products.Find(id);
+
+                    if (model == null) continue;
+                    model.Count = count;
+                    prodAmount += model.Count * model.Price;
+                    var newModel = new OrderDetailsModel()
+                    {
+                        Item = model.ProdName,
+                        Count = count,
+                        Price = model.Price,
+                    };
+                    orderDetailsModels.Add(newModel);
+                }
+            }
+
+            try
+            {
+
+
+                using (var db = new EF.DBContext())
+                {
+                    orderModel.OrderDate = DateTime.Now;
+                    orderModel.Amount = prodAmount;
+                    orderModel.OrderDetailModels = orderDetailsModels;
+                    db.Orders.Add(orderModel);
+                    db.SaveChanges();
+                }
+
+                var c = new HttpCookie("shopcart")
+                {
+                    Expires = DateTime.Now.AddDays(-1)
+                };
+                Response.Cookies.Add(c);
+
+                ViewData["Message"] = "訂購成功。";
+            }
+            catch(Exception ex)
+            {
+                ViewData["Message"] = $"訂購失敗。({ex.Message})";
+            }
+
+            return View();
+        }
+
+
+
+
 
 
         // GET: Shop/Details/5

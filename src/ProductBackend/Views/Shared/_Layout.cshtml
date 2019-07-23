@@ -55,6 +55,9 @@
                             <a class="nav-link" href="/Admin/Details">後台管理</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="/Admin/Orders">訂單管理</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/Admin/Logout">@Session["Name"].ToString() 登出</a>
                         </li>
                     }
@@ -103,7 +106,25 @@
             }
         }
     </div>
+    <div id="LoadingImage" style="z-index: 9995;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0px;
+    left: 0;
+    opacity: 100;
+    text-align: center;
+    display: none;">
+        <div style="background: black; opacity:0.15; width:100%; height:100%; position: absolute; top: 0;"></div>
+        <div style="position:relative; top:35% ">
+            <img src="/FileUploads/giphy.gif" />
 
+        </div>
+
+
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/productbackend")

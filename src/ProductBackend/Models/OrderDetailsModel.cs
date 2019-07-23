@@ -8,12 +8,17 @@ namespace ProductBackend.Models
 {
     public class OrderDetailsModel
     {
+        
         [Key]
         [Required]
         public int ID { get; set; }
+
         [Required]
         public int OrderID { get; set; }
+
         [Required]
-        public int Item { get; set; }
+        public string Item { get; set; }
+        public int Count { get; set; }
+        public double Price { get; set; }
     }
 }

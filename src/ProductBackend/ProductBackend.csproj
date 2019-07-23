@@ -226,11 +226,24 @@
     <Compile Include="Migrations\201907221455232_Update_Order.Designer.cs">
       <DependentUpon>201907221455232_Update_Order.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907230142514_Update_Order1.cs" />
+    <Compile Include="Migrations\201907230142514_Update_Order1.Designer.cs">
+      <DependentUpon>201907230142514_Update_Order1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907230217029_Update_Order2.cs" />
+    <Compile Include="Migrations\201907230217029_Update_Order2.Designer.cs">
+      <DependentUpon>201907230217029_Update_Order2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907230249483_Update_Order3.cs" />
+    <Compile Include="Migrations\201907230249483_Update_Order3.Designer.cs">
+      <DependentUpon>201907230249483_Update_Order3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\OrderDetailsModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\ShowShopIndexModel.cs" />
+    <Compile Include="Models\TModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -244,6 +257,7 @@
     <Content Include="Views\Admin\Edit.cshtml" />
     <Content Include="Views\Shop\Amount.cshtml" />
     <Content Include="Views\Admin\Orders.cshtml" />
+    <Content Include="Views\Shop\SaveOrder.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -253,6 +267,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Serivces\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
@@ -279,6 +294,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907221455232_Update_Order.resx">
       <DependentUpon>201907221455232_Update_Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907230142514_Update_Order1.resx">
+      <DependentUpon>201907230142514_Update_Order1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907230217029_Update_Order2.resx">
+      <DependentUpon>201907230217029_Update_Order2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907230249483_Update_Order3.resx">
+      <DependentUpon>201907230249483_Update_Order3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

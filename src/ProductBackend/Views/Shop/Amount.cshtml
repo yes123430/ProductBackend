@@ -47,14 +47,14 @@
 </table>
 <hr />
 <div class="container w-75 mb-3 ">
-    <form>
+    <form method="post" action="/Shop/SaveOrder">
         <div class="form-group">
             <label for="exampleInputEmail1">購買者郵件：</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="輸入郵件">
+            <input type="email" class="form-control" id="exampleInputEmail1" name="OrderMail" aria-describedby="emailHelp" placeholder="輸入郵件" >
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">備註：</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="Description" rows="3"></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">送出</button>
