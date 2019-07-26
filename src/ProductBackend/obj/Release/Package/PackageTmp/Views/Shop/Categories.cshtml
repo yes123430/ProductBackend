@@ -1,0 +1,80 @@
+﻿@model IPagedList<ProductBackend.Models.ProductModel>
+
+@{
+    ViewBag.Title = "Categories";
+}
+
+@section styles{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}
+
+<script>
+
+    //function JoinItemForShopCart(id)
+    //{
+    //    //addCookie("shopcart", "aa", "蘋果", "50");
+        
+    //    $.ajax({
+    //        type: 'post',
+    //        url: '/Shop/JoinShopCart/',
+    //        data: {
+    //            'id': id
+    //        },
+    //        success: function ()
+    //        {
+
+    //        },
+    //        error: function ()
+    //        {
+
+    //        },
+    //        complete: function ()
+    //        {
+
+    //        },
+    //    })
+    //}
+
+</script>
+
+<div class="container-fluid text-center" style="display:none;">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            分類
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">所有商品</a>
+            <a class="dropdown-item" href="#">大型水果</a>
+            <a class="dropdown-item" href="#">小型水果</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid mb-2">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col col-6 col-md-3">
+                <div class="card mt-4">
+                    <div class="card-header font-weight-bold">@item.ProdName</div>
+                    <div class="cardsaleprice">售價：@item.Price</div>
+                    <img class="card-img-top" src="@item.ImagePath" />
+                    <div class="card-body  p-2">
+                        <p class="overflow-auto mb-0">@item.ProdDescription</p>
+                    </div>
+                    <div class="row ml-1 mr-1">
+                        <div class="col-6 p-2"><button class="w-100 btn-change">詳細</button></div>
+                        <div class="col-6 p-2"><button type="button" class="w-100 btn-change2" onclick="JoinItemForShopCart(@item.ID, 1)">購物車</button></div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="container-fluid text-center">
+    @Html.PagedListPager(Model, page => Url.Action("Categories", new { page }))
+</div>
+
+

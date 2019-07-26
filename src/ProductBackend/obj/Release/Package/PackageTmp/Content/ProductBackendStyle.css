@@ -1,0 +1,106 @@
+﻿body {
+    background-color:white;
+    max-width:1000px;
+    width:100%;
+    margin: 0 auto;
+}
+
+#container-carousel-Products {
+    width: 100%;
+    padding: 0;
+}
+
+.carousel .carousel-item {
+
+}
+
+.carousel .carousel-item img {
+    object-fit: cover;
+}
+
+.card .cardsaleprice {
+    position: absolute;
+    right: 0;
+    margin: .70rem 0.5rem;
+    padding: 0.2rem;
+    background: #3470d9;
+    border-radius: 5px;
+    color: white;
+    font-family: fantasy;
+    font-size: small;
+}
+
+.card-body p{
+    height:150px!important;
+}
+
+#CShoppingCar {
+    position: absolute !important;
+    right: 10px !important;
+    bottom: 10px;
+}
+
+#customFooter {
+    background-color: white !important;
+    border-top: 1px solid #c3c6c9;
+    color: #808080;
+    padding: 1rem 0;
+}
+
+
+.btn-change {
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-out;
+    box-shadow: 0px 0px 0 0px lightseagreen inset;
+}
+
+    .btn-change:hover {
+        -webkit-transition-duration: 1s;
+        -webkit-transition-timing-function: linear;
+        -webkit-box-shadow: 0px 0px 0 100px lightseagreen inset;
+    }
+
+.btn-change2 {
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-out;
+    box-shadow: 0px 0px 0 0px #3477eb inset;
+}
+
+    .btn-change2:hover {
+        -webkit-transition-duration: 1s;
+        -webkit-transition-timing-function: linear;
+        -webkit-box-shadow: 0px 0px 0 100px #3477eb inset;
+    }
+@media (max-width: 768px) {
+    .carousel .carousel-item {
+        height: 200px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}   
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .carousel .carousel-item {
+        height: 350px;
+    }
+}
+@media (min-width: 992px) {
+    .carousel .carousel-item {
+        height: 450px;
+
+    }
+}
+/*
+@media screen and (min-width: 996px) and (max-width: 1200px) {
+    .carousel .carousel-item {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+@media (min-width: 1200px) {
+    .carousel .carousel-item {
+        padding-left: 300px;
+        padding-right: 300px;
+    }
+}
+*/

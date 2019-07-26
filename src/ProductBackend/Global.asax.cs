@@ -14,6 +14,7 @@ namespace ProductBackend
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            System.Web.Http.GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }

@@ -196,5 +196,12 @@ D:\GitHub\ProductBackend\src\ProductBackend\obj\Debug\ProductBackend.csproj.Copy
 D:\GitHub\ProductBackend\src\ProductBackend\obj\Debug\ProductBackend.dll
 D:\GitHub\ProductBackend\src\ProductBackend\obj\Debug\ProductBackend.pdb
 D:\GitHub\ProductBackend\src\ProductBackend\obj\Debug\ProductBackend.Migrations.Update_Order2.resources
-D:\GitHub\ProductBackend\src\ProductBackend\obj\Debug\ProductBackend.csprojAssemblyReference.cache
 D:\GitHub\ProductBackend\src\ProductBackend\obj\Debug\ProductBackend.Migrations.Update_Order3.resources
+D:\GitHub\ProductBackend\src\ProductBackend\bin\zh-Hant\System.Web.Optimization.resources.dll
+D:\GitHub\ProductBackend\src\ProductBackend\bin\System.Net.Http.Formatting.dll
+D:\GitHub\ProductBackend\src\ProductBackend\bin\System.Web.Http.dll
+D:\GitHub\ProductBackend\src\ProductBackend\bin\System.Web.Http.WebHost.dll
+D:\GitHub\ProductBackend\src\ProductBackend\bin\System.Net.Http.Formatting.xml
+D:\GitHub\ProductBackend\src\ProductBackend\bin\System.Web.Http.xml
+D:\GitHub\ProductBackend\src\ProductBackend\bin\System.Web.Http.WebHost.xml
+D:\GitHub\ProductBackend\src\ProductBackend\obj\Debug\ProductBackend.csprojAssemblyReference.cache

@@ -1,0 +1,105 @@
+﻿@model IEnumerable<ProductBackend.Models.ProductModel>
+
+
+@{
+    ViewBag.Title = "產品管理";
+}
+
+
+
+<div class="text-left m-2">
+    <!-- Button trigger modal -->
+    <button id="openAddModal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        建立資料
+    </button>
+</div>
+    
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImagePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Count)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdDescription)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.ProdName)
+            </td>
+            <td>
+                <img style="max-width: 50px; max-height: 50px" src="@Html.DisplayFor(modelItem => item.ImagePath)" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Count)
+            </td>
+            <td class="w-25">
+                @Html.DisplayFor(modelItem => item.ProdDescription)
+            </td>
+            <td>
+                <button class="btn btn-default" onclick="location.href='@Url.Action("Edit", "Admin", new { id = item.ID })';return false;">編輯</button>
+                <input type="button" class="btn btn-danger" value="刪除" onclick="productBtnDeleteEvent(@item.ID)" />
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header ">
+                <h4 class="modal-title" id="myModalLabel">新增資料</h4>
+            </div>
+
+            <form id="addDataForm">
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="product-name" class="col-form-label">產品名稱：</label>
+                        <input type="text" class="form-control" id="product-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="price-name" class="col-form-label">價格：</label>
+                        <input type="text" class="form-control" id="price-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="count-name" class="col-form-label">數量：</label>
+                        <input type="text" class="form-control" id="count-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="proddescription-name" class="col-form-label">產品描述：</label>
+                        <input type="text" class="form-control" id="proddescription-name">
+                    </div>
+                </div>
+            </form>
+
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+                <button id="submit" type="submit" class="btn btn-primary" form="addDataForm">儲存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

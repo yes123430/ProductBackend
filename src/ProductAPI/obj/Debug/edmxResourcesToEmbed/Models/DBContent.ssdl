@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProductBackendModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderDetailsModels">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Item" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderModels">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+    <Property Name="OrderMail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Amount" Type="float" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProdName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ImagePath" Type="nvarchar(max)" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Count" Type="float" Nullable="false" />
+    <Property Name="BuildDateTime" Type="datetime" Nullable="false" />
+    <Property Name="ProdDescription" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ShowShopIndexModels">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_dbo_OrderDetailsModels_dbo_OrderModels_OrderID">
+    <End Role="OrderModels" Type="Self.OrderModels" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderDetailsModels" Type="Self.OrderDetailsModels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderModels">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderDetailsModels">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProductBackendModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetailsModels" EntityType="Self.OrderDetailsModels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderModels" EntityType="Self.OrderModels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShowShopIndexModels" EntityType="Self.ShowShopIndexModels" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_OrderDetailsModels_dbo_OrderModels_OrderID" Association="Self.FK_dbo_OrderDetailsModels_dbo_OrderModels_OrderID">
+      <End Role="OrderModels" EntitySet="OrderModels" />
+      <End Role="OrderDetailsModels" EntitySet="OrderDetailsModels" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
