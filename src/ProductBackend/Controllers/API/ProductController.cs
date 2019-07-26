@@ -41,6 +41,7 @@ namespace ProductBackend.Controllers.API
         }
 
         // PUT: api/Product/5
+        [HttpPut]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutProductModel(int id, ProductModel productModel)
         {
@@ -76,6 +77,7 @@ namespace ProductBackend.Controllers.API
         }
 
         // POST: api/Product
+        [HttpPost]
         [ResponseType(typeof(ProductModel))]
         public IHttpActionResult PostProductModel(ProductModel productModel)
         {
@@ -91,6 +93,7 @@ namespace ProductBackend.Controllers.API
         }
 
         // DELETE: api/Product/5
+        [HttpDelete]
         [ResponseType(typeof(ProductModel))]
         public async Task<IHttpActionResult> DeleteProductModel(int id)
         {
