@@ -13,7 +13,8 @@ namespace ProductBackend.Controllers
     {
         private EF.DBContext _DBContent = new EF.DBContext();
 
-        // GET: Admin
+
+        [HttpGet]
         public ActionResult Index()
         {
             var bResult = Convert.ToBoolean(Session["auth"]);
@@ -42,6 +43,7 @@ namespace ProductBackend.Controllers
             return RedirectToAction("Details");
         }
 
+        [HttpGet]
         public ActionResult Logout()
         {
             Session["auth"] = false;
@@ -68,6 +70,7 @@ namespace ProductBackend.Controllers
             return View("Index");
         }
 
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             try
@@ -125,6 +128,7 @@ namespace ProductBackend.Controllers
             return View("Edit", model);
         }
 
+        [HttpGet]
         [AuthorizePlus]
         public ActionResult Details()
         {
@@ -170,6 +174,7 @@ namespace ProductBackend.Controllers
             }, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
         public ActionResult Orders()
         {
             var models = this._DBContent.Orders.Include(o => o.OrderDetailModels).ToList();
