@@ -8,6 +8,7 @@
 　資料庫：MSSQL<br>
  
 ## - 實作那些功能
+* CRUD (Asp .Net Web API)
 * CRUD (Entity Framework)
 * jQuery Ajax Post - (~/Script/productbackend.min.js)
 * 單張照片上傳
