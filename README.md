@@ -8,6 +8,7 @@
 　資料庫：MSSQL<br>
  
 ## - 實作那些功能
+* 發行至IIS
 * CRUD (Asp .Net Web API)
 * CRUD (Entity Framework)
 * jQuery Ajax Post - (~/Script/productbackend.min.js)
